@@ -53,6 +53,12 @@ class FunSetSuite extends FunSuite {
   test("contains is implemented") {
     assert(contains(x => true, 100))
   }
+
+  
+  test("contains: test on positives") {
+    assert(contains(x => x>0, 100))
+  }
+  
   
   /**
    * When writing tests, one would often like to re-use certain values for multiple
@@ -77,6 +83,8 @@ class FunSetSuite extends FunSuite {
     val s1 = singletonSet(1)
     val s2 = singletonSet(2)
     val s3 = singletonSet(3)
+    val biggerThan4 : Set = x => x>4
+    val smallerThan10 : Set = x => x<10
   }
 
   /**
@@ -86,7 +94,7 @@ class FunSetSuite extends FunSuite {
    * Once you finish your implementation of "singletonSet", exchange the
    * function "ignore" by "test".
    */
-  ignore("singletonSet(1) contains 1") {
+  test("singletonSet(1) contains 1") {
     
     /**
      * We create a new instance of the "TestSets" trait, this gives us access
@@ -97,11 +105,12 @@ class FunSetSuite extends FunSuite {
        * The string argument of "assert" is a message that is printed in case
        * the test fails. This helps identifying which assertion failed.
        */
-      assert(contains(s1, 1), "Singleton")
+      assert(contains(s1, 1), "Singleton set does not contain its element.")
+      assert(!contains(s1, 2), "Singleton set contains a second element." )
     }
   }
 
-  ignore("union contains all elements") {
+  test("union contains all elements") {
     new TestSets {
       val s = union(s1, s2)
       assert(contains(s, 1), "Union 1")
@@ -109,4 +118,46 @@ class FunSetSuite extends FunSuite {
       assert(!contains(s, 3), "Union 3")
     }
   }
+  
+  
+  test("intersect contains all elements") {
+    new TestSets {
+      val s = intersect(biggerThan4, smallerThan10)
+      assert(contains(s, 5), "wrong intersect")
+      assert(contains(s, 7), "wrong intersect")
+      assert(!contains(s, 1), "wrong intersect")
+    }
+  }
+  
+  test("diff contains all elements") {
+    new TestSets {
+      val s = diff(biggerThan4, smallerThan10)
+      assert(contains(s, 10), "wrong diff")
+      assert(contains(s, 11), "wrong diff")
+      assert(!contains(s, 9), "wrong diff")
+      assert(!contains(s, 8), "wrong diff")
+    }
+  }
+  
+  test("filter contains all elements") {
+    new TestSets {
+      val s = filter(biggerThan4, x=> x%2==0)
+      assert(contains(s, 6), "wrong filter")
+      assert(contains(s, 8), "wrong filter")
+      assert(!contains(s, 9), "wrong filter")
+      assert(!contains(s, 1), "wrong filter")
+    }
+  }
+ 
+  test("forall contains all elements") {
+    new TestSets { 
+      assert(forall(biggerThan4, x=> x>0), "wrong forall")
+      assert(exists(biggerThan4, x=> x>0), "wrong exists")
+      assert(!exists(biggerThan4, x=> x<0), "wrong exists")
+      
+      assert(exists(map(biggerThan4, x=> x*x), x=>x==25), "wrong map")
+      assert(!exists(map(biggerThan4, x=> x*x), x=>x==24), "wrong map")
+    }
+  }
+  
 }
