@@ -14,10 +14,15 @@ object Main {
   /**
    * Exercise 1
    */
-  def pascal(c: Int, r: Int): Int = {
 
-    if (c < 0 || r < 0 || c > r) return 0
-    if (c == 0 || r == 0) 1 else pascal(c - 1, r - 1) + pascal(c, r - 1)
+  def pascal(c: Int, r: Int): Int = pascal_(c, r, 0)
+
+  def pascal_(c: Int, r: Int, acc: Int): Int = {
+
+    if (c < 0 || r < 0 || c > r) return acc
+
+    if (c == 0 || r == 0) acc + 1
+    else pascal_(c - 1, r - 1, pascal_(c, r - 1, 0) + acc)
 
   }
 
@@ -33,8 +38,8 @@ object Main {
       if (chars.isEmpty) return count
 
       chars.head match {
-        case ')' => return check(chars.tail, count - 1)
         case '(' => return check(chars.tail, count + 1)
+        case ')' => return check(chars.tail, count - 1)
         case _ => return check(chars.tail, count)
       }
     }
