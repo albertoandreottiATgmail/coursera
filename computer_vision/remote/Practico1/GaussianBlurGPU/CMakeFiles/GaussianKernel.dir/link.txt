@@ -1,0 +1,2 @@
+/usr/bin/ar cr libGaussianKernel.a  CMakeFiles/GaussianKernel.dir/././GaussianKernel_generated_kernel.cu.o
+/usr/bin/ranlib libGaussianKernel.a

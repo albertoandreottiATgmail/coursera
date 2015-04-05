@@ -1,0 +1,2 @@
+/home/cv2015/cv201515/practicos/Practico1/GaussianBlurGPU/CMakeFiles/DisplayImage.dir
+/home/cv2015/cv201515/practicos/Practico1/GaussianBlurGPU/CMakeFiles/GaussianKernel.dir

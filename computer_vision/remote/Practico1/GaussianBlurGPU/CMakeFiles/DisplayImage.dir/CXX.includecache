@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cv2015/cv201515/practicos/Practico1/GaussianBlurGPU/DisplayImageCuda.cpp
+stdio.h
+-
+opencv2/opencv.hpp
+-
+vector
+-
+thread
+-
+chrono
+-
+kernel.h
+/home/cv2015/cv201515/practicos/Practico1/GaussianBlurGPU/kernel.h
+
+/home/cv2015/cv201515/practicos/Practico1/GaussianBlurGPU/kernel.h
+

@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cv2015/cv201515/practicos/Practico2/GaussianBlur.cpp
+stdio.h
+-
+opencv2/opencv.hpp
+-
+vector
+-
+

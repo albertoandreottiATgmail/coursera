@@ -1,0 +1,1 @@
+/home/alberto/coursera/computer_vision/Practico1/GaussianBlur/CMakeFiles/DisplayImage.dir
