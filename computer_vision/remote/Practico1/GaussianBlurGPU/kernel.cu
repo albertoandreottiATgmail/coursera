@@ -7,7 +7,7 @@ __global__ void gaussianBlurKernel(const Byte* const __restrict__ input,
                                    const size_t height,
                                    const float* const __restrict__ gaussianKernel)
 {
-//x and y maxs are width and height
+    //x and y maxs are width and height
     const unsigned int x = blockIdx.x * blockDim.x + threadIdx.x;
     const unsigned int y = blockIdx.y * blockDim.y + threadIdx.y;
 

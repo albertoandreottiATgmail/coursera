@@ -1,0 +1,3 @@
+sshfs cv201515@mini.famaf.unc.edu.ar:/home/cv2015/cv201515/practicos remote
+ssh cv201515@mini.famaf.unc.edu.ar -X
+
